@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Road Works Prediction (Watsonx.ai)</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div>
+        <h1>Road Works Prediction</h1>
+        <p class="subtitle">IBM Watsonx.ai XGB classifier • Secure scoring via your Node.js backend</p>
+      </div>
+      <div class="badge">Production-ready UI</div>
+    </header>
+
+    <main class="grid">
+      <section class="card form-card">
+        <h2>Enter Model Features</h2>
+        <p class="hint">Submit the 14 required fields below. Numbers are treated as numeric values.</p>
+
+        <form id="predictForm" class="form" autocomplete="off">
+          <div class="fields">
+            <label class="field">
+              <span>STATE_NAME</span>
+              <input type="text" name="STATE_NAME" placeholder="e.g., Karnataka" required />
+            </label>
+
+            <label class="field">
+              <span>DISTRICT_NAME</span>
+              <input type="text" name="DISTRICT_NAME" placeholder="e.g., Bengaluru" required />
+            </label>
+
+            <label class="field">
+              <span>NO_OF_ROAD_WORK_SANCTIONED</span>
+              <input type="number" name="NO_OF_ROAD_WORK_SANCTIONED" required step="any" />
+            </label>
+
+            <label class="field">
+              <span>LENGTH_OF_ROAD_WORK_SANCTIONED</span>
+              <input type="number" name="LENGTH_OF_ROAD_WORK_SANCTIONED" required step="any" />
+            </label>
+
+            <label class="field">
+              <span>NO_OF_BRIDGES_SANCTIONED</span>
+              <input type="number" name="NO_OF_BRIDGES_SANCTIONED" required step="any" />
+            </label>
+
+            <label class="field">
+              <span>COST_OF_WORKS_SANCTIONED</span>
+              <input type="number" name="COST_OF_WORKS_SANCTIONED" required step="any" />
+            </label>
+
+            <label class="field">
+              <span>NO_OF_ROAD_WORKS_COMPLETED</span>
+              <input type="number" name="NO_OF_ROAD_WORKS_COMPLETED" required step="any" />
+            </label>
+
+            <label class="field">
+              <span>LENGTH_OF_ROAD_WORK_COMPLETED</span>
+              <input type="number" name="LENGTH_OF_ROAD_WORK_COMPLETED" required step="any" />
+            </label>
+
+            <label class="field">
+              <span>NO_OF_BRIDGES_COMPLETED</span>
+              <input type="number" name="NO_OF_BRIDGES_COMPLETED" required step="any" />
+            </label>
+
+            <label class="field">
+              <span>EXPENDITURE_OCCURED</span>
+              <input type="number" name="EXPENDITURE_OCCURED" required step="any" />
+            </label>
+
+            <label class="field">
+              <span>NO_OF_ROAD_WORKS_BALANCE</span>
+              <input type="number" name="NO_OF_ROAD_WORKS_BALANCE" required step="any" />
+            </label>
+
+            <label class="field">
+              <span>LENGTH_OF_ROAD_WORK_BALANCE</span>
+              <input type="number" name="LENGTH_OF_ROAD_WORK_BALANCE" required step="any" />
+            </label>
+
+            <label class="field">
+              <span>NO_OF_BRIDGES_BALANCE</span>
+              <input type="number" name="NO_OF_BRIDGES_BALANCE" required step="any" />
+            </label>
+
+            <label class="field">
+              <span>COLUMN15</span>
+              <input type="number" name="COLUMN15" required step="any" />
+            </label>
+          </div>
+
+          <div class="actions">
+            <button id="submitBtn" type="submit" class="btn">
+              <span class="btn-label">Predict</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+            <div id="statusText" class="status" role="status" aria-live="polite"></div>
+          </div>
+        </form>
+      </section>
+
+      <section class="card result-card">
+        <h2>Prediction Result</h2>
+        <div id="resultArea" class="result-area">
+          <div class="empty">No prediction yet. Submit the form to see results.</div>
+        </div>
+        <div id="errorArea" class="error-area" role="alert"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Built with Express + IBM Watsonx.ai • Backend proxy avoids CORS.</span>
+    </footer>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
+
